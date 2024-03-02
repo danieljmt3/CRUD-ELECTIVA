@@ -1,3 +1,108 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
 section{
-    background: crimson;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+}
+
+.formulario{
+    display: grid;
+    margin: 10px;
+    display: grid;
+
+}
+
+.formulario input{
+    width: 95%;
+    height: 40px;
+    border: 1px solid orange;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.formulario .description{
+    width: 95%;
+    height: 120px;
+}
+
+.cont-btn{
+    margin-top: 10px;
+    width: 95%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cont-btn button{
+    border-radius: 10px;
+    border: none;
+    width: 50%;
+    background-color: orange;
+    color: white;
+}
+
+.cont-btn button:hover{
+    border: none;
+    width: 50%;
+    background-color: rgb(212, 139, 3);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+/*
+****
+
+SECCION TASK
+
+****
+*/
+
+
+.tasks{
+    background-color: rgb(238, 238, 238);
+    display: grid;
+    justify-content: center;
+}
+
+.tasks .task{
+    margin: 5px;
+    width: 45vw;
+    background-color: white;
+    height: 60px;
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.tasks .task p{
+    width: 70%;
+}
+
+.tasks .task .cont-actions{
+    background-color: rgb(156, 70, 70);
+    display: flex;
+    justify-content: space-between;
+}
+
+.tasks .task .cont-actions button{
+    text-align: center;
+    border: none;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
 }
