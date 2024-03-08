@@ -14,7 +14,7 @@ try {
     $stmt->execute();
 
     // Mostrar el resultado
-    $row = $stmt->fetch();
+    $row = $stmt->fetchAll();
     echo "ID: " . $row['ID'] . "<br>";
     echo "Nombre: " . $row['Name'] . "<br>";
     echo "Descripción: " . $row['Description'] . "<br>";
