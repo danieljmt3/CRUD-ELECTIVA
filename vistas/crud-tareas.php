@@ -31,6 +31,7 @@
     </section>
 
     <script src="../public/javascript/index.js"></script>
+    <script src="../public/javascript/listar.task.js"></script>
 </body>
 
 </html>

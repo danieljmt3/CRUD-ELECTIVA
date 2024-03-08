@@ -24,5 +24,40 @@ function guardarTarea($conexion) {
     mysqli_close($conexion);
 }
 
+/**
+ * 
+ * ESTA FUNCION SE ENCARGA DE LISTAR
+ * 
+ * @param: CONEXION A BASE DE DATOS $conexion
+ */
+function obtenerListaTareas($conexion) {
+ 
+    // Consulta SQL para obtener la lista de tareas
+    $consulta = "SELECT id, titulo, descripcion FROM tareas";
+    $resultado = $conexion->query($consulta);
+
+    // Verifica si se obtuvieron resultados
+    if ($resultado->num_rows > 0) {
+        // Arreglo para almacenar las tareas
+        $tareas = array();
+
+        // Itera sobre cada fila de resultados
+        while ($fila = $resultado->fetch_assoc()) {
+            // Agrega la tarea a la lista
+            $tareas[] = $fila;
+        }
+
+        // Cierra la conexión
+        $conexion->close();
+
+        // Devuelve la lista de tareas en formato JSON
+        echo json_encode($tareas);
+    } else {
+        // Si no se encontraron tareas, devuelve un JSON vacío
+        echo json_encode(array());
+    }
+}
+
+
 
 ?>
