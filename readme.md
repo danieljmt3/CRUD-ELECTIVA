@@ -16,7 +16,7 @@ Recuerde tener instalado PHP y MySQL, recomendamos el uso de XAMPP puede descarg
 
 ### Clonar repositorio de github 
 Puede puede clonar el proyecto usando el comando : 
-> git clone <url-del-repositorio>
+> git clone 'url-del-repositorio'
 
 ## CONFORMACION DE EQUIPOS 
 
