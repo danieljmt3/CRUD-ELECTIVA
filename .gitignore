@@ -1,0 +1,45 @@
+# Archivos de configuración de Visual Studio Code
+.vscode/
+
+# Archivos de configuración de PHP
+vendor/
+composer.phar
+composer.lock
+
+# Archivos de caché y logs
+cache/*
+logs/*
+
+# Archivos temporales del sistema
+*.log
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+*.bak
+*.swp
+*~
+*.DS_Store
+
+# Archivos de Node.js
+node_modules/
+
+# Archivos de SASS
+.sass-cache/
+
+# Archivos de distribución
+/dist
+
+# Archivos de configuración de IDE y editores
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+.komodotools
+_project
+nbproject
+*.tmproj
+*.esproj
+*.stTheme
+*.idea/
