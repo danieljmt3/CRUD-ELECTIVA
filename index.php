@@ -20,7 +20,7 @@
             <p class="conten__error">
                 Bienvenido al CRUD de los criminales.
             </p>
-        <a href="vistas/index.html" class="conten__button">Ingresar</a>
+        <a href="vistas/crud-tareas.php" class="conten__button">Ingresar</a>
         </div>
     </div>
    
