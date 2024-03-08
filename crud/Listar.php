@@ -1,5 +1,5 @@
 <?php
-include_once('/db/conexion.task.php')
+include_once('conexion.task.php')
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
