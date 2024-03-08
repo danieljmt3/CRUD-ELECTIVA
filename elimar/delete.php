@@ -1,5 +1,5 @@
 <?php
-// Conexión a la base de datos
+// Conexión a la base de datosaa
 $conexion = new mysqli("localhost", "usuario", "contraseña", "nombre_base_de_datos");
 
 // Verifica la conexión
