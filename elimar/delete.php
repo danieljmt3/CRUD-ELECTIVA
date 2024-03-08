@@ -1,49 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tareas</title>
-</head>
-<body>
-    <h2>Lista de Tareas</h2>
-    <form method="post">
-        <input type="text" name="task" placeholder="Agregar nueva tarea" required>
-        <button type="submit" name="addTask">Agregar</button>
-    </form>
+<?php
+// Conexión a la base de datos
+$conexion = new mysqli("localhost", "usuario", "contraseña", "nombre_base_de_datos");
 
-    <ul>
-        <?php
-        session_start();
-        
-        // Inicializar la lista de tareas si no existe
-        if (!isset($_SESSION['tasks'])) {
-            $_SESSION['tasks'] = [];
-        }
+// Verifica la conexión
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
+}
 
-        // Agregar tarea
-        if (isset($_POST['addTask'])) {
-            $task = $_POST['task'];
-            array_push($_SESSION['tasks'], $task);
-        }
+// Obtiene el ID de la tarea a borrar
+$id_tarea = $_GET['id'];
 
-        // Borrar tarea
-        if (isset($_POST['deleteTask'])) {
-            $index = $_POST['index'];
-            unset($_SESSION['tasks'][$index]);
-            $_SESSION['tasks'] = array_values($_SESSION['tasks']); // Reindexar el array
-        }
+// Elimina la tarea de la base de datos
+$sql = "DELETE FROM tareas WHERE id=$id_tarea";
+if ($conexion->query($sql) === TRUE) {
+    header('Location: index.php'); // Redirige de nuevo a la página principal
+} else {
+    echo "Error al borrar tarea: " . $conexion->error;
+}
 
-        // Mostrar tareas
-        foreach ($_SESSION['tasks'] as $index => $task) {
-            echo "<li>$task 
-                    <form method='post' style='display:inline;'>
-                        <input type='hidden' name='index' value='$index'>
-                        <button type='submit' name='deleteTask'>Borrar</button>
-                    </form>
-                </li>";
-        }
-        ?>
-    </ul>
-</body>
-</html>
+// Cierra la conexión
+$conexion->close();
+?>
