@@ -1,7 +1,11 @@
 // Espera a que el documento HTML se haya cargado completamente
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded",()=>{
+    listar_tareas();
+});
+
+let listar_tareas =  function() {
     // Realiza una solicitud para obtener las tareas
-    fetch('../controladores/listar.task.php')
+    fetch('../controladores/Listar.task.php')
         .then(response => response.json()) // Parsea la respuesta como JSON
         .then(data => {
             // Selecciona el contenedor de tareas
@@ -46,6 +50,6 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => {
             console.error('Error al obtener las tareas:', error);
         });
-});
+};
 
 console.log("sirve")

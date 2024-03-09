@@ -20,13 +20,7 @@
             </form>
         </div>
         <div class="tasks">
-            <div class="task">
-                <p>pasear al perro</p>
-                <div class="cont-actions">
-                    <button type="button">Completar</button>
-                    <button>Editar</button>
-                </div>
-            </div>
+           
         </div>
     </section>
 
