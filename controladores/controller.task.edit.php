@@ -1,10 +1,10 @@
 <?php
-include "./db/conexion.task.php";
+include "../db/conexion.task.php";
 //Condicional donde recibe el id mediante get y muestra los datos en el formulario de actualización
 if($_SERVER['REQUEST_METHOD']==='GET'){
     $id= $_GET["id"];
     $crudsito="SELECT * FROM `tareas` where ID=$id";
-    $hacercrud= mysqli_query($conec,$crudsito);
+    $hacercrud= mysqli_query($conn,$crudsito);
     while($crudd= mysqli_fetch_array($hacercrud)){
 ?>
 <!DOCTYPE html>
@@ -32,20 +32,20 @@ if($_SERVER['REQUEST_METHOD']==='GET'){
                         <div class="cont">
                         <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
                             <div class="texto">
-                            <input type="hidden" class="txt" value="<?php echo $crudd['ID']?>" name="id">
+                            <input type="hidden" class="txt" value="<?php echo $crudd['id']?>" name="id">
                             <p>NOMBRE</p>
                             </div>
                             <div class="texto">
-                            <input type="text" class="txt" value="<?php echo $crudd['NOMBRE']?>" name="nom">
+                            <input type="text" class="txt" value="<?php echo $crudd['titulo']?>" name="nom">
                             </div>
  
                             <div class="texto">
                             <P>DESCRIPCION</P>
-                            <input type="text" class="txt" value="<?php echo $crudd['DESCRIPCION']?>" name="descripcion">
+                            <input type="text" class="txt" value="<?php echo $crudd['descripcion']?>" name="descripcion">
                             </div>
                             <div class="texto">
                             <p>ESTADO</p>
-                            <input type="checkbox" class="check" value="<?php echo ($crudd['ESTADO']==1)? 'checked':'' ?>" name="estado">
+                            <input type="checkbox" class="check" value="<?php echo ($crudd['estado']==1)? 'checked':'' ?>" name="estado">
                             </div>
                             <input type="submit" class="btact" value="Editar">
                         </form>
@@ -62,14 +62,15 @@ if($_SERVER['REQUEST_METHOD']==='GET'){
 }else if($_SERVER['REQUEST_METHOD']=== 'POST'){//se hace la petición mediante post
     $ide= $_POST['id'];
     $nom= $_POST['nom'];
-    $desc= $_POST['descrpcion'];
+    $desc= $_POST['descripcion'];
     $estado= isset($_POST['estado'])?1:0;
-
-    $actuali= mysqli_query($conec,"UPDATE `tareas` SET `NOMBRE` = '$nom', `DESCRIPCION` = '$desc', `ESTADO` = '$estado' WHERE `ID` = '$ide'")
+    $actuali= mysqli_query($conn,"UPDATE `tareas` SET `titulo` = '$nom', `descripcion` = '$desc', `estado` = '$estado' WHERE `id` = '$ide'")
     or die("error al actualizar");
+    echo'deberia redireccionar';
+    
+    mysqli_close($conn);
+    header('Location: http://localhost/codigos/CRUD-ELECTIVA/vistas/crud-tareas.php');
 
-    mysqli_close($conec);
-
-    header("adonde_muestre_los_usuarios.html");
+    
 }
 

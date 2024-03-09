@@ -20,11 +20,15 @@
             </form>
         </div>
         <div class="tasks">
-            <div class="task">
+        <div class="task">
                 <p>pasear al perro</p>
                 <div class="cont-actions">
                     <button type="button">Completar</button>
-                    <button>Editar</button>
+                    <form action="../controladores/controller.task.edit.php" method="GET">
+                        <input type="hidden" name="id"  value="1">
+                        <input type="submit">
+                    </form>
+                    
                 </div>
             </div>
         </div>

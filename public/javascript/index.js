@@ -17,6 +17,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
             console.log(data.message)
             alert(data.message)
             document.querySelector('form').reset();
+            listar();
         })
         .catch((error) => {
             console.log('Error:', error);
