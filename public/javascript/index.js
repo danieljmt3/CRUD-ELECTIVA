@@ -19,6 +19,6 @@ document.querySelector('form').addEventListener('submit', function(event) {
             document.querySelector('form').reset();
         })
         .catch((error) => {
-            console.error('Error:', error);
+            console.log('Error:', error);
         });
 });
